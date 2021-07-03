@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+    var list = ViewData["list"] as IEnumerable<PM_EOS.Models.MonHoc>;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TrangChu</title>
+</head>
+<body>
+    <p> Chao mung den trang web Thi Online EOS</p>
+    <p>Nguoi dung : @ViewBag.user</p>
+    <p>Tu cach : @ViewBag.role</p>
+    <a href="/Home/DangXuat">Dang xuat</a>
+    <br />
+    @if (ViewBag.role == "Giao vien")
+    {
+        <a href="/Home/GiaoDienMoDongDeThi">Mở/Đóng đề thi</a>
+        <p>Xem điểm thi của học sinh</p>
+        <p>Tạo đề thi</p>
+        <p></p>
+    }
+    @if (ViewBag.role == "Hoc sinh")
+    {
+        <p>
+            Danh sach cac mon hoc
+        </p>
+        @foreach (var item in list)
+        {
+            <a href="/Home/DeThi?id=@item.IdmonHoc">@item.TenMonHoc</a> <br />
+        }
+    }
+</body>
+</html>

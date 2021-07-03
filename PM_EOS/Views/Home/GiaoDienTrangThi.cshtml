@@ -1,0 +1,70 @@
+﻿
+@{
+    var list = ViewData["list"] as IEnumerable<PM_EOS.Mutiple.CauHoi_DetailDeThi_DapAn>;
+    var abc = ViewData["abc"] as IEnumerable<PM_EOS.Models.CauHoi>;
+    Layout = null;
+    int a = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GiaoDienTrangThi</title>
+</head>
+<body>
+
+
+    <h3 style="text-align:center;font-size:18px;color:red">00:00</h3>
+    <form action="/Home/NopBai?idde=@ViewBag.idde" method="post" id="myform">
+        @foreach (var item in abc)
+        {
+            string name = "radio" + a;
+            <p>@item.TenCauHoi :  @item.NoiDungCauHoi </p>
+            <p>
+                @foreach (var item1 in list)
+                {
+                    if (item.IdcauHoi == item1.detaildethis.CauHoiId)
+                    {
+                        <input type="radio" name="@name" value="@item1.detaildethis.DapAnId" />
+                        @item1.dapans.NoiDungDapAn
+                        <br />
+                    }
+                }
+            </p>
+            a++;
+        }
+
+        <button type="submit">Nộp Bài</button>
+    </form>
+    <input type="submit" form="myform" style="display:none" id="123" value="Nộp bài " />
+    <script>
+        const timeH = document.querySelector('h3');
+        let timeSecond = 10;
+
+        displayTime(timeSecond)
+        const countDown = setInterval(() => {
+            timeSecond--;
+            displayTime(timeSecond);
+            if (timeSecond <= 0 || timeSecond < 1) {
+                endTime();
+                clearInterval(countDown);
+            }
+        }, 1000)
+        function displayTime(second) {
+            const min = Math.floor(second / 60);
+            const sec = Math.floor(second % 60);
+            timeH.innerHTML = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`
+        }
+        function endTime() {
+            timeH.innerHTML = 'Het thoi gian';
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('123').style.display = 'block';
+
+
+        }
+    </script>
+
+</body>
+</html>

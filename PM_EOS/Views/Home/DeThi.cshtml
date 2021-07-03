@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PM_EOS.Models.LKMonhocDeThi>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeThi</title>
+</head>
+<body>
+    <p>Danh sach de thi </p>
+    @foreach (var item in Model)
+    {
+        <p>@item.dethis.TenDeThi</p>
+        @if (item.dethis.TrangThai == "Lock")
+        {<p>Đang Khóa ! Đợi giáo viên Mở đề thi</p>}
+        @if (item.dethis.TrangThai == "UnLock")
+        {<a href="/Home/GiaoDienTrangThi?idde=@item.dethis.IddeThi&Monthi=@item.monhocdethis.MonHocId" >Vào thi</a>}
+    }
+
+</body>
+</html>

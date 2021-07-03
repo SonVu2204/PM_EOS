@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giaodiendangnhap</title>
+</head>
+<body>
+    Đăng Nhập
+    <form action="/Home/DangNhap" method="post">
+    Tài khoản: <input  type="text" name="user"/><br />
+    Mật Khẩu : <input type="text" name="pass"/><br />
+    <button type="submit">Đăng Nhập</button>
+    </form>
+    <h4>@ViewBag.err</h4>
+</body>
+</html>

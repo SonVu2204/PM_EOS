@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+    var lock1 = ViewData["lock"] as IEnumerable<PM_EOS.Models.DeThi>;
+    var unlock = ViewData["unlock"] as IEnumerable<PM_EOS.Models.DeThi>;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GiaoDienMoDongDeThi</title>
+</head>
+<body>
+    <p >Đề thi đang khóa</p>
+    <table border="1">
+        <tr>
+            <td>Tên đề thi</td>
+            <td>Trạng thái</td>
+        </tr>
+        @foreach(var item in lock1)
+            {
+                <tr>
+                    <td>@item.TenDeThi</td>
+                    <td><a href="/Home/MoKhoaDeThi?id=@item.IddeThi">Mở đề thi</a></td>
+                </tr>
+            }
+    </table>
+    <p>Đề thi đang mở </p>
+    <table border="1" >
+        <tr>
+            <td>Tên đề thi</td>
+            <td>Trạng thái</td>
+        </tr>
+        @foreach (var item in unlock)
+        {
+            <tr>
+                <td>@item.TenDeThi</td>
+                <td><a href="/Home/KhoaDeThi?id=@item.IddeThi">Khóa đề thi</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

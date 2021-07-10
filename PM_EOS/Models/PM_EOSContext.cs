@@ -62,7 +62,7 @@ namespace PM_EOS.Models
 
             modelBuilder.Entity<AnswerDeThi>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.PrimaryKey);
 
                 entity.ToTable("AnswerDeThi");
 
@@ -127,9 +127,10 @@ namespace PM_EOS.Models
 
             modelBuilder.Entity<DetailDeThi>(entity =>
             {
-                entity.HasNoKey();
+               
 
                 entity.ToTable("DetailDeThi");
+                entity.HasKey(e => e.KhoaChinh);
 
                 entity.Property(e => e.CauHoiId).HasColumnName("CauHoiID");
 
@@ -198,8 +199,8 @@ namespace PM_EOS.Models
 
             modelBuilder.Entity<MonHocDeThi>(entity =>
             {
-                entity.HasNoKey();
 
+                entity.HasKey(e => e.Khoa_Chinh);
                 entity.ToTable("MonHoc_DeThi");
 
                 entity.Property(e => e.DeThiId).HasColumnName("DeThiID");

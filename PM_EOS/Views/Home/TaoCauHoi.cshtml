@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+    int soluong = Convert.ToInt32( ViewBag.soluongcau);
+   
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TaoCauHoi</title>
+</head>
+<body style="background-color:yellow">
+    <p style="font-size:20px; text-align:center">Tạo câu hỏi cho đề thi : @ViewBag.tende</p>
+    <div style=" background-color:cyan; margin:200px 300px 0 300px ">
+        <form action="/Home/SaveDeThiMoi?soluong=@soluong&tende=@ViewBag.tende" method="post">
+            <table border="1" style="margin:10px 20px 0 350px">
+                <tr>
+                    <td>Câu hỏi  </td>
+                    <td>Đáp án </td>
+                    <td> Đáp án đúng</td>
+                </tr>
+                @for (int count = 1; count <= soluong; count++)
+                {
+                    string a = (3 * count - 2).ToString();
+                    string b = (3 * count - 1).ToString();
+                    string c = (3 * count).ToString();
+                    string cauhoi = "Causo" + count;
+                    string dapan = "Dapan" + count;
+                    string luachon1 = "luachon " + a;
+                    string luachon2 = "luachon " + b;
+                    string luachon3 = "luachon " + c;
+
+                    <tr>
+                        <td>Cau so @count :<input type="text" name="@cauhoi" /></td>
+                        <td>
+                            A: <input type="text" name="@a" /><br />
+                            B: <input type="text" name="@b" /><br />
+                            C: <input type="text" name="@c" />
+                        </td>
+                        <td>
+                            <input type="radio" name="@dapan" value="@luachon1" /> : A <br />
+                            <input type="radio" name="@dapan" value="@luachon2" /> : B<br />
+                            <input type="radio" name="@dapan" value="@luachon3" /> : C
+                        </td>
+                    </tr>
+                }
+            </table>
+  
+    <button type="submit" style=" margin: 20px 0 20px 550px;">Hoan thanh de thi</button>
+    </form>
+    </div>
+</body>
+</html>

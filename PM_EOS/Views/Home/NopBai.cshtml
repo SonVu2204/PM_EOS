@@ -10,7 +10,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>NopBai</title>
 </head>
-<body>
-    Diem:@ViewBag.diem
+<body style="background: rgb(185,183,245); background: linear-gradient(55deg, rgba(185,183,245,1) 0%, rgba(29,253,250,1) 41%, rgba(153,231,157,1) 100%);">
+    <form action="/Home/SaveDiemSauKhiThiXong?diem=@ViewBag.diem&idde=@ViewBag.idde" method="post">
+        <div style="margin-top:300px ; margin-left:720px">
+            <h2> Kết quả bạn đạt được : @ViewBag.diem </h2>
+            <button type="submit" style="margin-left:100px"> Kết thúc</button>
+        </div>
+    </form>
 </body>
 </html>

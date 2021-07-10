@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GiaoDienTaoMonHoc</title>
+</head>
+<body style="font-size:20px; background-color:#f3f378">
+    <a href="/Home/TrangChu"><i class="fas fa-chevron-circle-left"></i>Quay lại</a>
+
+    <p style="text-align:center; font-size:25px">Tạo Môn Học Mới</p>
+    <div style=" margin: 50px 0 0 730px">
+        <form action="/Home/XuLyAddMonHoc" method="post">
+            <p>Tên môn học : <input type="text" name="monhoc" /></p>
+            <button type="submit" style="margin-left:150px">Tạo môn học</button>
+        </form>
+        <p>@ViewBag.thongbao</p>
+    </div>
+    <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
+</body>
+</html>

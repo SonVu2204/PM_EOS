@@ -1,0 +1,36 @@
+﻿@-webkit-keyframes example {
+    0% {
+        background-color: Crimson;
+    }
+
+    25% {
+        background-color: LightSalmon;
+    }
+
+    50% {
+        background-color: pink;
+    }
+
+    100% {
+        background-color: purple;
+    }
+}
+
+/* Cú pháp tiêu chuẩn */
+@keyframes example {
+    0% {
+        background-color: Crimson;
+    }
+
+    25% {
+        background-color: LightSalmon;
+    }
+
+    50% {
+        background-color: pink;
+    }
+
+    100% {
+        background-color: indigo;
+    }
+}

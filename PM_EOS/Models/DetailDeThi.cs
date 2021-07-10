@@ -7,10 +7,11 @@ namespace PM_EOS.Models
 {
     public partial class DetailDeThi
     {
-        public int? DeThiId { get; set; }
-        public int? CauHoiId { get; set; }
-        public int? DapAnId { get; set; }
+        public int DeThiId { get; set; }
+        public int CauHoiId { get; set; }
+        public int DapAnId { get; set; }
 
+        public int KhoaChinh { get; set; }
         public virtual CauHoi CauHoi { get; set; }
         public virtual DapAn DapAn { get; set; }
         public virtual DeThi DeThi { get; set; }

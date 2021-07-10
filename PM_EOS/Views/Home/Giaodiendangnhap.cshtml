@@ -3,20 +3,67 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Giaodiendangnhap</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/File_rieng/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/File_rieng/css/owl.carousel.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/File_rieng/css/bootstrap.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="~/File_rieng/css/style.css">
+
+    <title>Login #9</title>
 </head>
 <body>
-    Đăng Nhập
-    <form action="/Home/DangNhap" method="post">
-    Tài khoản: <input  type="text" name="user"/><br />
-    Mật Khẩu : <input type="text" name="pass"/><br />
-    <button type="submit">Đăng Nhập</button>
-    </form>
-    <h4>@ViewBag.err</h4>
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="~/File_rieng/images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-block">
+                                <div class="mb-4">
+                                    <h3 style="text-align: center; ">Phần mềm thi Online <i class="fab fa-uncharted fa-1x fa-spin"></i><strong>EOS</strong><i class="fab fa-uncharted fa-1x fa-spin"></i></h3>
+                                    <p style="text-align: center;">Nhằm thay thế phần mềm EOS(cũ) mang lại niềm vui cho sinh viên </p>
+                                </div>
+                                <form action="/Home/DangNhap" method="post">
+                                    <div class="form-group first">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="user">
+                                    </div>
+                                    <div class="form-group last mb-4">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="pass">
+                                    </div>
+                                    <div class="d-flex mb-5 align-items-center">
+
+                                        <span class="ml-auto"><a href="/Home/GiaoDienDangKiTaiKhoan" class="forgot-pass">Đăng Kí </a></span>
+                                    </div>
+                                    <input type="submit" value="Đăng Nhập" class="btn btn-pill text-white btn-block btn-primary">
+                                </form>
+                                <p style="text-align:center; color:red">@ViewBag.err</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
+    <script src="~/File_rieng/js/jquery-3.3.1.min.js"></script>
+    <script src="~/File_rieng/js/popper.min.js"></script>
+    <script src="~/File_rieng/js/bootstrap.min.js"></script>
+    <script src="~/File_rieng/js/main.js"></script>
 </body>
 </html>

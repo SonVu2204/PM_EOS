@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+    var monhoc = ViewData["monhoc"] as IEnumerable<PM_EOS.Models.MonHoc>;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TaoDeThi</title>
+</head>
+<body style="background-color:#f3f378; font-size:20px">
+    <a href="/Home/TrangChu"><i class="fas fa-chevron-circle-left"></i>Quay Lai</a>
+    <div style="margin : 200px 0 0 800px; height:200px;width:400px">
+        <p style="padding-left:50px; font-size:25px">
+           Tạo Đề Thi 
+        </p>
+        <form action="/Home/TaoCauHoi" method="post">
+            <table>
+                <tr>
+                    <td>Môn Học :</td>
+                    <td>
+                        <select name="monhoc">
+                            <option>--Chon mon--</option>
+                            @foreach (var item in monhoc)
+                            {
+                                <option value="@item.IdmonHoc">@item.TenMonHoc</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tên đề thi: </td>
+                    <td><input type="text" name="tendethi" /></td>
+                </tr>
+                <tr>
+                    <td>Số lượng câu hỏi</td>
+                    <td><input type="text" name="soluong" /></td>
+                </tr>
+            </table>
+           
+          
+            
+            <button type="submit" style="margin-left:80px">Tao cau hoi</button>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
+</body>
+</html>

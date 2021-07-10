@@ -3,6 +3,7 @@
     Layout = null;
     var lock1 = ViewData["lock"] as IEnumerable<PM_EOS.Models.DeThi>;
     var unlock = ViewData["unlock"] as IEnumerable<PM_EOS.Models.DeThi>;
+    int abc = lock1.Count();
 }
 
 <!DOCTYPE html>
@@ -11,35 +12,55 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>GiaoDienMoDongDeThi</title>
+    <link rel="stylesheet" href="~/File_rieng/css/New Text Document.css">
 </head>
-<body>
-    <p >Đề thi đang khóa</p>
-    <table border="1">
-        <tr>
-            <td>Tên đề thi</td>
-            <td>Trạng thái</td>
-        </tr>
-        @foreach(var item in lock1)
+<body style="        background-color: Crimson;
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+        animation-duration: 4s;
+        ">
+    <p><a href="/Home/TrangChu"><i class="fas fa-chevron-circle-left"></i>Quay lai</a></p>
+
+    <div class="container" style=" display: flex; flex-direction: row; margin-left:500px">
+        <div class="chil1" style=" background-color:aquamarine; flex-basis:400px; text-align:center;color: orangered">
+            <p>Đề thi đang khóa</p>
+            @if (abc == 0)
+            {<p>Không có đề thi nào </p>}
+            @if (abc != 0)
             {
-                <tr>
-                    <td>@item.TenDeThi</td>
-                    <td><a href="/Home/MoKhoaDeThi?id=@item.IddeThi">Mở đề thi</a></td>
-                </tr>
+                <table border="1">
+                    <tr>
+                        <td>Tên đề thi</td>
+                        <td>Trạng thái</td>
+                    </tr>
+                    @foreach (var item in lock1)
+                    {
+                        <tr>
+                            <td>@item.TenDeThi</td>
+                            <td><a href="/Home/MoKhoaDeThi?id=@item.IddeThi">Mở đề thi</a></td>
+                        </tr>
+                    }
+                </table>
             }
-    </table>
-    <p>Đề thi đang mở </p>
-    <table border="1" >
-        <tr>
-            <td>Tên đề thi</td>
-            <td>Trạng thái</td>
-        </tr>
-        @foreach (var item in unlock)
-        {
-            <tr>
-                <td>@item.TenDeThi</td>
-                <td><a href="/Home/KhoaDeThi?id=@item.IddeThi">Khóa đề thi</a></td>
-            </tr>
-        }
-    </table>
+        </div>
+        <div class="chil2" style="background-color:aqua; flex-basis:400px;text-align:center; color:black">
+            <p>Đề thi đang mở </p>
+            <table border="1" style="margin-left:100px">
+                <tr>
+                    <td>Tên đề thi</td>
+                    <td>Trạng thái</td>
+                </tr>
+                @foreach (var item in unlock)
+                {
+                    <tr>
+                        <td>@item.TenDeThi</td>
+                        <td><a href="/Home/KhoaDeThi?id=@item.IddeThi">Khóa đề thi</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -4,35 +4,121 @@
     var list = ViewData["list"] as IEnumerable<PM_EOS.Models.MonHoc>;
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
-<html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>TrangChu</title>
+    </head>
+    <body>
+        <p> Chao mung den trang web Thi Online EOS</p>
+        <p>Nguoi dung : @ViewBag.user</p>
+        <p>Tu cach : @ViewBag.role</p>
+        <a href="/Home/DangXuat">Dang xuat</a>
+        <br />
+        @if (ViewBag.role == "Giao vien")
+        {
+            <a href="/Home/GiaoDienMoDongDeThi">Mở/Đóng đề thi</a>
+            <br />
+            <a href="/Home/GetAllDiem">Xem điểm thi của học sinh</a>
+            <br />
+            <a href="/Home/TaoDeThi">Tạo đề thi</a>
+            <br />
+            <a href="/Home/GiaoDienTaoMonHoc">Tao Mon Hoc</a>
+            <br />
+            <a href="#">Sửa Đề Thi</a>
+           <p>
+               @ViewBag.thongbao
+           </p>
+        }
+        @if (ViewBag.role == "Hoc sinh")
+        {
+            <p><a href="/Home/HocSinhXemDiem">Xem Điểm Thi </a></p>
+            <p>
+                Danh sach cac mon hoc
+            </p>
+            @foreach (var item in list)
+            {
+                <a href="/Home/DeThi?id=@item.IdmonHoc">@item.TenMonHoc</a> <br />
+            }
+        }
+    </body>
+    </html>*@
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>TrangChu</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/File_rieng/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/File_rieng/css/owl.carousel.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/File_rieng/css/bootstrap.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="~/File_rieng/css/style.css">
+
+    <title>Login #9</title>
 </head>
 <body>
-    <p> Chao mung den trang web Thi Online EOS</p>
-    <p>Nguoi dung : @ViewBag.user</p>
-    <p>Tu cach : @ViewBag.role</p>
-    <a href="/Home/DangXuat">Dang xuat</a>
-    <br />
-    @if (ViewBag.role == "Giao vien")
-    {
-        <a href="/Home/GiaoDienMoDongDeThi">Mở/Đóng đề thi</a>
-        <p>Xem điểm thi của học sinh</p>
-        <p>Tạo đề thi</p>
-        <p></p>
-    }
-    @if (ViewBag.role == "Hoc sinh")
-    {
-        <p>
-            Danh sach cac mon hoc
-        </p>
-        @foreach (var item in list)
-        {
-            <a href="/Home/DeThi?id=@item.IdmonHoc">@item.TenMonHoc</a> <br />
-        }
-    }
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="~/File_rieng/images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-block">
+                                <div class="mb-4">
+                                    <h3 style="text-align: center;">Phần mềm thi Online <strong>EOS</strong></h3>
+                                    <p style="text-align: center;">Nhằm thay thế phần mềm EOS(cũ) mang lại niềm vui cho sinh viên </p>
+                                </div>
+                                <p style="color:dodgerblue; text-align:center">Người dùng : @ViewBag.user - Tư cách  : @ViewBag.role </p>
+                                <a href="/Home/DangXuat" style="color:red">Đăng Xuất</a>
+
+                                <br />
+                                @if (ViewBag.role == "Giao vien")
+                                {
+                                    <a href="/Home/GiaoDienMoDongDeThi">Mở/Đóng đề thi</a>
+                                    <br />
+                                    <a href="/Home/GetAllDiem">Xem điểm thi của học sinh</a>
+                                    <br />
+                                    <a href="/Home/TaoDeThi">Tạo đề thi</a>
+                                    <br />
+                                    <a href="/Home/GiaoDienTaoMonHoc">Tạo Môn Học</a>
+                                    <br />
+                                   
+                                }
+                                @if (ViewBag.role == "Hoc sinh")
+                                {
+                                    <p><a href="/Home/HocSinhXemDiem">Xem Điểm Thi </a></p>
+                                    <p>
+                                        Danh sách các môn học
+                                    </p>
+                                    @foreach (var item in list)
+                                    {
+                                        <a href="/Home/DeThi?id=@item.IdmonHoc">@item.TenMonHoc</a> <br />
+                                    }
+                                }
+
+                                <p style="text-align:center; color:red">@ViewBag.err</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/File_rieng/js/jquery-3.3.1.min.js"></script>
+    <script src="~/File_rieng/js/popper.min.js"></script>
+    <script src="~/File_rieng/js/bootstrap.min.js"></script>
+    <script src="~/File_rieng/js/main.js"></script>
 </body>
 </html>

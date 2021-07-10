@@ -1,0 +1,124 @@
+﻿@model IEnumerable<PM_EOS.Mutiple.MuitipleDiemThi>
+@{
+    Layout = null;
+}
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>GetAllDiem</title>
+    </head>
+    <body>
+        <a href="/Home/TrangChu"><i class="fas fa-chevron-circle-left"></i>Quay Lai</a>
+
+        <table border="1" style="text-align:center">
+            <tr>
+                <td>Ten Hoc Sinh</td>
+                <td>Mon Hoc</td>
+                <td>De Thi</td>
+                <td>Diem Thi </td>
+                <td> Ket qua</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.accs.Username</td>
+                    <td>@item.monhocs.TenMonHoc</td>
+                    <td>@item.dethis.TenDeThi</td>
+                    <td>@item.marks.DiemThi</td>
+                    <td>@item.marks.Status</td>
+                    <td><a href="/Home/XoaDiemThi?idacc=@item.marks.HocSinhId&idde=@item.marks.DeThiId">Xoa Diem</a></td>
+                </tr>
+            }
+        </table>
+        <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table V02</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Css-GV/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Css-GV/css/main.css">
+</head>
+<body>
+    <a href="/Home/TrangChu"><i class="fas fa-chevron-circle-left"></i>Quay Lai</a>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table">
+
+                    <div class="row header">
+                        <div class="cell">
+                            Ten Hoc Sinh
+                        </div>
+                        <div class="cell">
+                            Mon Hoc
+                        </div>
+                        <div class="cell">
+                            De Thi
+                        </div>
+                        <div class="cell">
+                            Diem Thi
+                        </div>
+                        <div class="cell">
+                            Ket Qua
+                        </div>
+                        <div class="cell">
+                            Xóa Điểm
+                        </div>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                <div class="row">
+                    <div class="cell" data-title="Full Name">
+                        @item.accs.Username
+                    </div>
+                    <div class="cell" data-title="Age">
+                        @item.monhocs.TenMonHoc
+                    </div>
+                    <div class="cell" data-title="Job Title">
+                        @item.dethis.TenDeThi
+                    </div>
+                    <div class="cell" data-title="Location">
+                        @item.marks.DiemThi
+                    </div>
+                    <div class="cell" data-title="Abc">
+                        @if (@item.marks.Status == "Pass")
+                        {<p style="color:greenyellow">@item.marks.Status</p>}
+                        @if (@item.marks.Status != "Pass")
+                        {<p style="color:red">@item.marks.Status</p>}
+                    </div>
+                    <div class="cell" data-title="Title" style="text-align:center">
+                        <a href="/Home/XoaDiemThi?idacc=@item.marks.HocSinhId&idde=@item.marks.DeThiId"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                    }
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/1c24510dbf.js" crossorigin="anonymous"></script>
+    <script src="~/Css-GV/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Css-GV/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Css-GV/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Css-GV/vendor/select2/select2.min.js"></script>
+    <script src="~/Css-GV/js/main.js"></script>
+
+</body>
+</html>

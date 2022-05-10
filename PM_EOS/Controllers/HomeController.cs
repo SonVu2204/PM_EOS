@@ -136,6 +136,12 @@ namespace PM_EOS.Controllers
             ViewBag.idde = idde;
             return View();
         }
+        /// <summary>
+        /// hello
+        /// </summary>
+        /// <param name="diem"></param>
+        /// <param name="idde"></param>
+        /// <returns></returns>
         // ham nay dung de add diem sau khi hoc sinh thi xong
         [HttpPost]
         public IActionResult SaveDiemSauKhiThiXong(string diem, int idde)

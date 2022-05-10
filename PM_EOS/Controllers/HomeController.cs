@@ -137,7 +137,7 @@ namespace PM_EOS.Controllers
             return View();
         }
         /// <summary>
-        /// hello
+        /// hello conlon hung va long
         /// </summary>
         /// <param name="diem"></param>
         /// <param name="idde"></param>
